@@ -83,7 +83,8 @@ nav a:hover {
 
 .image-row img {
     width: 100%;
-    height: auto;
+    height: 300px;   /* increase from auto */
+    object-fit: contain;
     border-radius: 10px;
     flex: 1;
 }
