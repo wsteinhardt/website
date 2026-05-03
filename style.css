@@ -62,7 +62,6 @@ nav a:hover {
 }
 
 /* Multi-image rows */
-
 .image-row {
     display: flex;
     gap: 10px;
