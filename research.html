@@ -77,8 +77,10 @@ Using this system I have helped improve the interpretation of seismological stre
 
 </div>
 
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-    <img id="lightbox-img">
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+        <img id="lightbox-img">
+    </div>
 </div>
 
     <script>
