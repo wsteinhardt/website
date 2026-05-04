@@ -133,6 +133,15 @@ a.email:hover {
     border-radius: 10px;
 }
 
+.project img {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.project img:hover {
+    transform: scale(1.02);
+}
+
 /* Mobile */
 @media (max-width: 600px) {
     .profile {
