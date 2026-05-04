@@ -7,6 +7,9 @@ body {
 
 /* Navigation */
 nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background: white;
     border-bottom: 1px solid #e5e7eb;
     padding: 15px 20px;
@@ -14,15 +17,26 @@ nav {
     top: 0;
 }
 
-nav a {
+.nav-left a {
     margin-right: 20px;
     text-decoration: none;
     color: #374151;
     font-weight: 500;
 }
 
-nav a:hover {
+.nav-left a:hover {
     color: #111827;
+}
+
+.nav-name {
+    font-weight: 600;
+    color: #111827;
+    letter-spacing: 0.3px;
+}
+
+.nav-name a {
+    text-decoration: none;
+    color: inherit;
 }
 
 /* Layout */
@@ -167,5 +181,15 @@ a.email:hover {
 
     .image-row {
         flex-direction: column;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .nav-right {
+        align-self: flex-end;
     }
 }
