@@ -27,8 +27,8 @@ The behavior of faults, like many geophysical systems, is difficult to predict f
 Using this system I have helped improve the interpretation of seismological stress drops, observed and understood a precursory “locking” phase that precedes slip events on faults and has predictive power over the size, timing, and location of future slip events, and have identified seismologically measurable parameters that can be used to evaluate the relative likelihood of earthquakes that grow through a single monotonic growth and decay phase and those that grow via the linking of multiple disparate asperities.
     </p>
     <div class="image-row">
-        <img src="images/ExperimentPicture.jpg">
-        <img src="images/SlipDataExample.gif">
+        <img src="images/ExperimentPicture.jpg" onclick="openLightbox(this.src)" style="cursor:pointer;">
+        <img src="images/SlipDataExample.gif" onclick="openLightbox(this.src)" style="cursor:pointer;">
     </div>
 </div>
 
@@ -49,8 +49,8 @@ Using this system I have helped improve the interpretation of seismological stre
    Elastomers are commonly used in a number of applications that involve high frictional stresses.  This often leads to wear.  Different types of elastomers exhibit markedly different frictional behaviors.  Using a total internal reflection contact imaging system, combined with high speed photography, to observe hemispheres of different materials as they skid, we observe radically different dynamics depending on the material.  Dissipating the friction energy in these systems involves highly coupled thermal, elastic, plastic, and fracture-like responses, and as a result is, surprisingly, an excellent model system for understanding wear behaviors during faulting.
     </p>
     <div class="image-row">
-        <img src="images/WearSurface.png">
-        <img src="images/DifferentStreaksV2.gif">
+        <img src="images/WearSurface.png" onclick="openLightbox(this.src)" style="cursor:pointer;">
+        <img src="images/DifferentStreaksV2.gif" onclick="openLightbox(this.src)" style="cursor:pointer;">
     </div>
 </div>
 
@@ -60,7 +60,7 @@ Using this system I have helped improve the interpretation of seismological stre
    Fracture surface roughness is an important parameter that can control the energy dissipation of a crack, dictate the frictional, seismic, and fluid transport properties of a broken material, and is an important consideration for enhanced oil recovery and geothermal reservoir stimulation. A major source of fracture roughness is the interaction between a crack and material heterogeneity, but this relationship is poorly understood since heterogeneity is a difficult parameter to control experimentally.  I have developed two distinct methods to control heterogeneity in brittle hydrogels and have used them to show how the size and amount of heterogeneity affects fracture roughness, and how this can be easily predicted from simple statistical physics.  Furthermore, at very high heterogeneity I can generate crack surfaces that resemble those seen in complex natural materials like rocks.
     </p>
     <div class="image-row">
-        <img src="images/HeterogeneityFigure.png">
+        <img src="images/HeterogeneityFigure.png" onclick="openLightbox(this.src)" style="cursor:pointer;">
     </div>
 </div>
 
@@ -70,7 +70,7 @@ Using this system I have helped improve the interpretation of seismological stre
    Fracture roughness is not uniformly distributed across a surface, and instead is usually localized.  For brittle fractures, this localized roughness comes in the form of step-like instabilities that drift laterally along the growing front and leave in their wake a linear scar of relief known as a step line. I have shown that these steps have a characteristic asymmetric shape that determines their motion and interactions and that there are only three unique types of interactions that steps can have.  These interactions follow straightforward rules that, taken together, can be utilized to explain and predict large-scale complexity in fractures.
     </p>
     <div class="image-row">
-        <img src="images/SurfaceMap.png">
+        <img src="images/SurfaceMap.png" onclick="openLightbox(this.src)" style="cursor:pointer;">
     </div>
 </div>
     
@@ -80,6 +80,17 @@ Using this system I have helped improve the interpretation of seismological stre
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <img id="lightbox-img">
 </div>
+
+    <script>
+function openLightbox(src) {
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = src;
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+}
+</script>
 
 </body>
 </html>
