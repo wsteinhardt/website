@@ -4,6 +4,9 @@
     <meta charset="utf-8">
     <title>Research</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;500;600&display=swap">
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -38,7 +41,7 @@
 
 <h1>Research</h1>
 
-<div class="project">
+<div class="project" id="squishy-faults">
     <h2>Squishy Faults: A Scaled Laboratory System to Earthquakes</h2>
     <p>
     Earthquakes are hard to predict because: 1) their dynamics span enormous spatiotemporal scales (microns to km, milliseconds to centuries), 2) faults are highly heterogenous, and 3) they can only be observed indirectly.  I have developed a fault made out of a transparent rubber that addresses each of these issues, allowing direct imaging of slip, active control over normal stress heterogeneity, and that can undergo earthquake cycles in just a few seconds. It also has slip events that are localized and do not fail the entire interface, meaning the stress state on the fault is a function of both its geometric heterogeneity AND the residual stresses left from past events.  Due to this, the rubber fault follows a broad range of earthquake statistics seen in nature.<br>
@@ -49,9 +52,18 @@
         <img src="images/ExperimentPicture.jpg" onclick="openLightbox(this.src)" style="cursor:pointer;">
         <video src="images/SlipDataExample.mp4" poster="images/SlipDataExample_poster.jpg" autoplay loop muted playsinline></video>
     </div>
+
+    <div class="pubs">
+        <h3>Related publications</h3>
+        <ul>
+            <li><a href="https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2025GL120688" target="_blank" rel="noopener">Distinguishing Single and Linked Ruptures in the Laboratory and Nature</a><span class="pub-venue">Geophysical Research Letters, 2026</span></li>
+            <li><a href="https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2024GL112882" target="_blank" rel="noopener">Precursory Locking Precedes Slip Events on Laboratory Fault</a><span class="pub-venue">Geophysical Research Letters, 2025</span></li>
+            <li><a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2022GL101366" target="_blank" rel="noopener">Seismological Stress Drops for Confined Ruptures Are Invariant to Normal Stress</a><span class="pub-venue">Geophysical Research Letters, 2023</span></li>
+        </ul>
+    </div>
 </div>
 
-<div class="project">
+<div class="project" id="3d-dynamics">
     <h2>High-Speed 3D Dynamics of Rough Cracks</h2>
     <p>
     Fractures often have significant 3D roughness, but it is not well understood how that roughness forms and what its connection is to material heterogeneity.  A huge reason for this is that it is very difficult to image 3D fractures, especially with enough temporal resolution to understand their behavior.  I have developed a new system that combines laser sheet microscopy and fast camera photography to measure growing fractures at ~15 x 15 x 15 micron resolution at 1000 volumes per second.  These movies show how step-like instabilities on the fracture front grow and interact to generate roughness.  The complex three-dimensional dynamics of these interactions lead to mechanical and topological constraints on three-dimensional fracture mechanics.
@@ -62,7 +74,7 @@
 </div>
 
 
-<div class="project">
+<div class="project" id="wear">
     <h2>Wear Mechanisms at High Strains</h2>
     <p>
     Elastomers and thermoplastics are commonly used in a number of applications involving high frictional stresses.  This often leads to wear, which can fundamentally change the behavior, or destroy the functionality of the material.  Different types of soft materials exhibit markedly different frictional behaviors.  I created a high-speed contact imaging system to observe hemispheres of different materials as they skid, and measured their radically different dynamics to understand why thermoplastics behaved worse than rubber when used to make the treads of basketball shoes.  Dissipating the frictional energy in these systems involves highly coupled thermal, elastic, plastic, and fracture-like responses, and as a result is, surprisingly, an excellent model system for understanding wear behaviors during earthquakes..
@@ -73,7 +85,7 @@
     </div>
 </div>
 
-    <div class="project">
+    <div class="project" id="heterogeneity">
     <h2>How Heterogeneity Makes Cracks Rougher</h2>
     <p>
    Fracture surface roughness is an important parameter that can control the energy dissipation of a crack and dictate the frictional, seismic, or fluid transport properties of a broken material. Thus, it  is an important consideration for enhanced oil recovery and geothermal reservoir stimulation. A major source of fracture roughness is the interaction between a crack and material heterogeneity, but understanding this process was thought to be too difficult since it was believed that cracks are very sensitive to the details of this process and heterogeneity has historically been difficult to control experimentally.<br>
@@ -83,9 +95,16 @@ I have developed two distinct methods to control heterogeneity in brittle hydrog
     <div class="image-row">
         <img src="images/HeterogeneityFigure.png" onclick="openLightbox(this.src)" style="cursor:pointer;">
     </div>
+
+    <div class="pubs">
+        <h3>Related publications</h3>
+        <ul>
+            <li><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.129.128001" target="_blank" rel="noopener">How Material Heterogeneity Creates Rough Fractures</a><span class="pub-venue">Physical Review Letters, 2022 <a class="pub-tag" href="https://journals.aps.org/prl/covers/129/12" target="_blank" rel="noopener">Cover article</a></span></li>
+        </ul>
+    </div>
 </div>
 
-<div class="project">
+<div class="project" id="roughness-rules">
     <div class="project-side">
         <div>
             <h2>The Rules of Fracture Roughness</h2>
@@ -98,24 +117,111 @@ I have developed two distinct methods to control heterogeneity in brittle hydrog
                 onclick="openLightbox(this.src)" style="cursor:pointer;">
         </div>
     </div>
+
+    <div class="pubs">
+        <h3>Related publications</h3>
+        <ul>
+            <li><a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.107.055003" target="_blank" rel="noopener">Geometric Rules for the Annihilation Dynamics of Step Lines on Fracture Fronts</a><span class="pub-venue">Physical Review E, 2023</span></li>
+        </ul>
+    </div>
 </div>
 
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <div class="lightbox-content" onclick="event.stopPropagation()">
-        <img id="lightbox-img">
+        <img id="lightbox-img" alt="">
+        <video id="lightbox-video" autoplay loop muted playsinline></video>
     </div>
 </div>
 
     <script>
-function openLightbox(src) {
-    document.getElementById("lightbox").style.display = "flex";
-    document.getElementById("lightbox-img").src = src;
+var lightbox = document.getElementById("lightbox");
+var lightboxImg = document.getElementById("lightbox-img");
+var lightboxVideo = document.getElementById("lightbox-video");
+
+function openLightbox(media) {
+    var isVideo = media.tagName === "VIDEO";
+    lightboxImg.style.display = isVideo ? "none" : "block";
+    lightboxVideo.style.display = isVideo ? "block" : "none";
+    if (isVideo) {
+        lightboxVideo.src = media.currentSrc || media.src;
+        lightboxVideo.play();
+    } else {
+        lightboxImg.src = media.src;
+    }
+    lightbox.style.display = "flex";
 }
 
 function closeLightbox() {
-    document.getElementById("lightbox").style.display = "none";
+    lightbox.style.display = "none";
+    lightboxVideo.pause();
 }
+
+document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeLightbox();
+});
+
+// Wrap every image and clip in a row in a frame with an expand badge
+document.querySelectorAll(".image-row img, .image-row video").forEach(function (media) {
+    var frame = document.createElement("span");
+    frame.className = "zoomable";
+    frame.setAttribute("role", "button");
+    frame.setAttribute("tabindex", "0");
+    frame.setAttribute("aria-label", "Enlarge");
+    media.removeAttribute("onclick");
+    media.removeAttribute("style");
+    media.parentNode.insertBefore(frame, media);
+    frame.appendChild(media);
+    frame.insertAdjacentHTML("beforeend",
+        '<span class="zoom-hint" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>');
+    frame.addEventListener("click", function () { openLightbox(media); });
+    frame.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openLightbox(media); }
+    });
+    media.addEventListener(media.tagName === "VIDEO" ? "loadedmetadata" : "load", layoutRows);
+});
+
+// Give every item in a row the same height so their edges line up and the
+// row fills the card's width (capped so single images don't get huge)
+var MAX_ROW_HEIGHT = 300;
+
+function aspectOf(media) {
+    return media.tagName === "VIDEO"
+        ? media.videoWidth / media.videoHeight
+        : media.naturalWidth / media.naturalHeight;
+}
+
+function layoutRows() {
+    document.querySelectorAll(".image-row").forEach(function (row) {
+        var frames = Array.prototype.slice.call(row.children).filter(function (el) {
+            return el.classList.contains("zoomable");
+        });
+        var aspects = frames.map(function (f) { return aspectOf(f.firstElementChild); });
+        if (!frames.length || aspects.some(function (a) { return !a; })) return;
+
+        var width = row.clientWidth;
+        var stacked = getComputedStyle(row).flexDirection === "column";
+        frames.forEach(function (f, i) {
+            var w, h;
+            if (stacked) {
+                w = width;
+                h = w / aspects[i];
+            } else {
+                var gap = parseFloat(getComputedStyle(row).columnGap) || 0;
+                var total = aspects.reduce(function (a, b) { return a + b; }, 0);
+                h = Math.min(MAX_ROW_HEIGHT, (width - gap * (frames.length - 1)) / total);
+                w = h * aspects[i];
+            }
+            f.style.width = Math.floor(w) + "px";
+            f.style.height = Math.floor(h) + "px";
+        });
+        row.classList.add("laid-out");
+    });
+}
+
+window.addEventListener("resize", layoutRows);
+layoutRows();
 </script>
 
+<script src="nav.js"></script>
 </body>
 </html>
