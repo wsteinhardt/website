@@ -102,42 +102,98 @@ I have developed two distinct methods to control heterogeneity in brittle hydrog
 
 <div id="lightbox" class="lightbox" onclick="closeLightbox()">
     <div class="lightbox-content" onclick="event.stopPropagation()">
-        <img id="lightbox-img">
+        <img id="lightbox-img" alt="">
+        <video id="lightbox-video" autoplay loop muted playsinline></video>
     </div>
 </div>
 
     <script>
-function openLightbox(src) {
-    document.getElementById("lightbox").style.display = "flex";
-    document.getElementById("lightbox-img").src = src;
+var lightbox = document.getElementById("lightbox");
+var lightboxImg = document.getElementById("lightbox-img");
+var lightboxVideo = document.getElementById("lightbox-video");
+
+function openLightbox(media) {
+    var isVideo = media.tagName === "VIDEO";
+    lightboxImg.style.display = isVideo ? "none" : "block";
+    lightboxVideo.style.display = isVideo ? "block" : "none";
+    if (isVideo) {
+        lightboxVideo.src = media.currentSrc || media.src;
+        lightboxVideo.play();
+    } else {
+        lightboxImg.src = media.src;
+    }
+    lightbox.style.display = "flex";
 }
 
 function closeLightbox() {
-    document.getElementById("lightbox").style.display = "none";
+    lightbox.style.display = "none";
+    lightboxVideo.pause();
 }
-
-// Wrap each enlargeable image in a frame with an expand badge
-document.querySelectorAll('img[onclick*="openLightbox"]').forEach(function (img) {
-    var frame = document.createElement("span");
-    frame.className = "zoomable";
-    frame.setAttribute("role", "button");
-    frame.setAttribute("tabindex", "0");
-    frame.setAttribute("aria-label", "Enlarge image");
-    img.removeAttribute("onclick");
-    img.removeAttribute("style");
-    img.parentNode.insertBefore(frame, img);
-    frame.appendChild(img);
-    frame.insertAdjacentHTML("beforeend",
-        '<span class="zoom-hint" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>');
-    frame.addEventListener("click", function () { openLightbox(img.src); });
-    frame.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openLightbox(img.src); }
-    });
-});
 
 document.addEventListener("keydown", function (e) {
     if (e.key === "Escape") closeLightbox();
 });
+
+// Wrap every image and clip in a row in a frame with an expand badge
+document.querySelectorAll(".image-row img, .image-row video").forEach(function (media) {
+    var frame = document.createElement("span");
+    frame.className = "zoomable";
+    frame.setAttribute("role", "button");
+    frame.setAttribute("tabindex", "0");
+    frame.setAttribute("aria-label", "Enlarge");
+    media.removeAttribute("onclick");
+    media.removeAttribute("style");
+    media.parentNode.insertBefore(frame, media);
+    frame.appendChild(media);
+    frame.insertAdjacentHTML("beforeend",
+        '<span class="zoom-hint" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg></span>');
+    frame.addEventListener("click", function () { openLightbox(media); });
+    frame.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openLightbox(media); }
+    });
+    media.addEventListener(media.tagName === "VIDEO" ? "loadedmetadata" : "load", layoutRows);
+});
+
+// Give every item in a row the same height so their edges line up and the
+// row fills the card's width (capped so single images don't get huge)
+var MAX_ROW_HEIGHT = 300;
+
+function aspectOf(media) {
+    return media.tagName === "VIDEO"
+        ? media.videoWidth / media.videoHeight
+        : media.naturalWidth / media.naturalHeight;
+}
+
+function layoutRows() {
+    document.querySelectorAll(".image-row").forEach(function (row) {
+        var frames = Array.prototype.slice.call(row.children).filter(function (el) {
+            return el.classList.contains("zoomable");
+        });
+        var aspects = frames.map(function (f) { return aspectOf(f.firstElementChild); });
+        if (!frames.length || aspects.some(function (a) { return !a; })) return;
+
+        var width = row.clientWidth;
+        var stacked = getComputedStyle(row).flexDirection === "column";
+        frames.forEach(function (f, i) {
+            var w, h;
+            if (stacked) {
+                w = width;
+                h = w / aspects[i];
+            } else {
+                var gap = parseFloat(getComputedStyle(row).columnGap) || 0;
+                var total = aspects.reduce(function (a, b) { return a + b; }, 0);
+                h = Math.min(MAX_ROW_HEIGHT, (width - gap * (frames.length - 1)) / total);
+                w = h * aspects[i];
+            }
+            f.style.width = Math.floor(w) + "px";
+            f.style.height = Math.floor(h) + "px";
+        });
+        row.classList.add("laid-out");
+    });
+}
+
+window.addEventListener("resize", layoutRows);
+layoutRows();
 </script>
 
 <script src="nav.js"></script>
