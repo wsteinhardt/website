@@ -1,15 +1,16 @@
 :root {
-    --accent: #a4502a;
-    --accent-dark: #82401f;
-    --accent-light: #f6ebe4;
+    --accent: #3d6b57;
+    --accent-dark: #2f5343;
+    --accent-light: #e3ede8;
+    --page-bg: #f8f6f1;
     --heading-font: "Libre Baskerville", Georgia, serif;
-    --body-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --body-font: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
 body {
     font-family: var(--body-font);
     margin: 0;
-    background-color: #f9fafb;
+    background-color: var(--page-bg);
     color: #1f2937;
     line-height: 1.55;
 }

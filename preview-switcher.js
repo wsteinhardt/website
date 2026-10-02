@@ -13,7 +13,7 @@
     var colors = [
         ['Deep blue', '#1d4e89', '#163b68', '#e8eef6'],
         ['Terracotta', '#a4502a', '#82401f', '#f6ebe4'],
-        ['Slate green', '#3d6b57', '#2f5343', '#e8f0ec'],
+        ['Slate green', '#3d6b57', '#2f5343', '#e3ede8'],
         ['Current (none)', '#111827', '#000000', '#e5e7eb']
     ];
     var bodyFonts = [
@@ -25,13 +25,21 @@
         ['Source Serif 4 (serif)', '"Source Serif 4", Georgia, serif']
     ];
 
+    var backgrounds = [
+        ['Warm paper', '#f8f6f1'],
+        ['Sage tint', '#f2f5f2'],
+        ['Stone', '#efede8'],
+        ['Cool grey (current)', '#f9fafb'],
+        ['White', '#ffffff']
+    ];
+
     var link = document.createElement('link');
     link.rel = 'stylesheet';
     link.href = 'https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Fraunces:opsz,wght@9..144,600&family=Playfair+Display:wght@600&family=EB+Garamond:wght@600&family=Libre+Baskerville:wght@700&family=Inter:wght@600&family=Libre+Franklin:wght@400;500;600&family=Source+Sans+3:wght@400;500;600&family=Lato:wght@400;700&family=Nunito+Sans:wght@400;600&display=swap';
     document.head.appendChild(link);
 
-    var state = { font: 4, color: 1, body: 0 };
-    try { Object.assign(state, JSON.parse(localStorage.getItem('previewDesign2') || '{}')); } catch (e) {}
+    var state = { font: 4, color: 2, body: 2, bg: 0 };
+    try { Object.assign(state, JSON.parse(localStorage.getItem('previewDesign3') || '{}')); } catch (e) {}
 
     function apply() {
         var r = document.documentElement.style;
@@ -40,7 +48,8 @@
         r.setProperty('--accent-dark', colors[state.color][2]);
         r.setProperty('--accent-light', colors[state.color][3]);
         r.setProperty('--body-font', bodyFonts[state.body][1]);
-        try { localStorage.setItem('previewDesign2', JSON.stringify(state)); } catch (e) {}
+        r.setProperty('--page-bg', backgrounds[state.bg][1]);
+        try { localStorage.setItem('previewDesign3', JSON.stringify(state)); } catch (e) {}
         render();
         window.dispatchEvent(new Event('resize'));
     }
@@ -71,6 +80,12 @@
                 'font-family:' + f[1].replace(/"/g, "'") + ';font-size:14px;border:1px solid ' + (i === state.body ? '#9ca3af' : 'transparent') +
                 ';background:' + (i === state.body ? '#f3f4f6' : 'transparent') + '">' + f[0] + '</button>';
         });
+        h += '<div style="color:#6b7280;margin:10px 0 4px">Background</div><div style="display:flex;gap:6px;margin-bottom:4px">';
+        backgrounds.forEach(function (c, i) {
+            h += '<button data-g="' + i + '" title="' + c[0] + '" style="width:30px;height:30px;border-radius:6px;cursor:pointer;background:' + c[1] +
+                ';border:1px solid #d1d5db;box-shadow:' + (i === state.bg ? '0 0 0 2px #fff, 0 0 0 4px #6b7280' : 'none') + '"></button>';
+        });
+        h += '</div><div style="color:#6b7280">' + backgrounds[state.bg][0] + '</div>';
         h += '<button data-x="1" style="margin-top:8px;padding:4px 8px;border:1px solid #e5e7eb;border-radius:6px;background:#fff;cursor:pointer;color:#6b7280">Hide panel</button>';
         box.innerHTML = h;
     }
@@ -81,6 +96,7 @@
         if (b.dataset.c) state.color = +b.dataset.c;
         if (b.dataset.f) state.font = +b.dataset.f;
         if (b.dataset.b) state.body = +b.dataset.b;
+        if (b.dataset.g) state.bg = +b.dataset.g;
         if (b.dataset.x) { box.style.display = 'none'; return; }
         apply();
     });
