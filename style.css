@@ -178,7 +178,6 @@ h2 {
     flex: none;
     line-height: 0;
     cursor: zoom-in;
-    background: #f3f4f6;
 }
 
 .zoomable img,
@@ -188,6 +187,16 @@ h2 {
     height: 100%;
     margin: 0;
     object-fit: cover;
+}
+
+/* Multiply blends white figure backgrounds into the warm card colour
+   (other colours shift by only a few percent) */
+.zoomable img,
+.zoomable video,
+.lightbox img,
+.lightbox video,
+.highlight img {
+    mix-blend-mode: multiply;
 }
 
 /* Before the script sizes a row, keep items at a sane height */
@@ -336,7 +345,6 @@ a.email:hover {
     width: 100%;
     aspect-ratio: 4 / 3;
     object-fit: cover;
-    background: #111827;
 }
 
 .highlight-text {
