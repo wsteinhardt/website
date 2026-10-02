@@ -116,7 +116,6 @@ h2 {
 .card, .project {
     background: var(--surface);
     padding: 20px 24px;
-    border-radius: 6px;
     border-top: 3px solid var(--accent);
     margin-top: 24px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
@@ -378,6 +377,13 @@ a.email:hover {
     color: var(--accent);
 }
 
+/* Home cards go to one column before their one-line subtitles would wrap */
+@media (max-width: 800px) {
+    .highlights {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Mobile */
 @media (max-width: 600px) {
     .profile {
@@ -415,8 +421,12 @@ a.email:hover {
         grid-template-columns: 1fr;
     }
 
-    .highlights {
-        grid-template-columns: 1fr;
+    .highlight-text {
+        padding: 12px;
+    }
+
+    .highlight-text span {
+        font-size: 0.85em;
     }
 }
 
