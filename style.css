@@ -2,7 +2,9 @@
     --accent: #3d6b57;
     --accent-dark: #2f5343;
     --accent-light: #e3ede8;
-    --page-bg: #f8f6f1;
+    --page-bg: #efede8;
+    --surface: #f8f6f1;
+    --border: #e0dcd3;
     --heading-font: "Libre Baskerville", Georgia, serif;
     --body-font: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
@@ -24,8 +26,8 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: white;
-    border-bottom: 1px solid #e5e7eb;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
     padding: 15px 20px;
     position: sticky;
     top: 0;
@@ -112,7 +114,7 @@ h2 {
 
 /* Cards */
 .card, .project {
-    background: white;
+    background: var(--surface);
     padding: 20px 24px;
     border-radius: 6px;
     border-top: 3px solid var(--accent);
@@ -139,7 +141,7 @@ h2 {
 .profile-left img {
     width: 100%;
     border-radius: 50%;
-    box-shadow: 0 0 0 4px white, 0 0 0 7px var(--accent), 0 6px 18px rgba(0,0,0,0.12);
+    box-shadow: 0 0 0 4px var(--page-bg), 0 0 0 7px var(--accent), 0 6px 18px rgba(0,0,0,0.12);
 }
 
 .profile-right h1 {
@@ -294,7 +296,7 @@ a.email:hover {
 }
 
 .lightbox-content {
-    background: white;
+    background: var(--surface);
     padding: 10px;
     border-top: 3px solid var(--accent);
     box-shadow: 0 8px 30px rgba(0,0,0,0.2);
@@ -322,7 +324,7 @@ a.email:hover {
 
 .highlight {
     display: block;
-    background: white;
+    background: var(--surface);
     color: inherit;
     text-decoration: none;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);

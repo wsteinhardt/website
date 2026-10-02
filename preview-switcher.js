@@ -38,8 +38,8 @@
     link.href = 'https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Fraunces:opsz,wght@9..144,600&family=Playfair+Display:wght@600&family=EB+Garamond:wght@600&family=Libre+Baskerville:wght@700&family=Inter:wght@600&family=Libre+Franklin:wght@400;500;600&family=Source+Sans+3:wght@400;500;600&family=Lato:wght@400;700&family=Nunito+Sans:wght@400;600&display=swap';
     document.head.appendChild(link);
 
-    var state = { font: 4, color: 2, body: 2, bg: 0 };
-    try { Object.assign(state, JSON.parse(localStorage.getItem('previewDesign3') || '{}')); } catch (e) {}
+    var state = { font: 4, color: 2, body: 2, bg: 2 };
+    try { Object.assign(state, JSON.parse(localStorage.getItem('previewDesign4') || '{}')); } catch (e) {}
 
     function apply() {
         var r = document.documentElement.style;
@@ -49,7 +49,7 @@
         r.setProperty('--accent-light', colors[state.color][3]);
         r.setProperty('--body-font', bodyFonts[state.body][1]);
         r.setProperty('--page-bg', backgrounds[state.bg][1]);
-        try { localStorage.setItem('previewDesign3', JSON.stringify(state)); } catch (e) {}
+        try { localStorage.setItem('previewDesign4', JSON.stringify(state)); } catch (e) {}
         render();
         window.dispatchEvent(new Event('resize'));
     }
